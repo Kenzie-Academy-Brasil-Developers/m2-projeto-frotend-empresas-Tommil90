@@ -423,5 +423,20 @@ async function requestEditUserByAdmin(token, endpoint, body){
     }
 }
 
-export {requestSectors, requestCompaniesBySector, requestCompanies, requestCreateUser, requestLoginUser, requestDepartamentsAllCompanies, requestDepartamentsByCompanies, requestUserOfOutWork, requestAllUsers, requestHireUser, requestDismissUser, requestInfoUser, requestDepertamentUser, requestSameDepartamentUsers, requestUpdateUser, requestUpdateDescriptionDepartament, requestDeleteCompany, requestEditUserByAdmin}
+async function requestDeleteUserByAdmin(token, endpoint){
+
+    try{
+        const request = await fetch(baseUrl + "admin/delete_user/" + endpoint, {
+            method: 'DELETE',
+            headers: {
+              "Content-Type": "application/json",  
+              "Authorization": `Bearer ${token}`
+            },
+        })
+    }catch(err){
+            console.log(err)
+    }
+}
+
+export {requestSectors, requestCompaniesBySector, requestCompanies, requestCreateUser, requestLoginUser, requestDepartamentsAllCompanies, requestDepartamentsByCompanies, requestUserOfOutWork, requestAllUsers, requestHireUser, requestDismissUser, requestInfoUser, requestDepertamentUser, requestSameDepartamentUsers, requestUpdateUser, requestUpdateDescriptionDepartament, requestDeleteCompany, requestEditUserByAdmin, requestDeleteUserByAdmin}
 

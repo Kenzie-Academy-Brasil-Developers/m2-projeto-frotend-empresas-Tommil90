@@ -1,7 +1,7 @@
 import {requestCompanies, requestDepartamentsAllCompanies, requestDepartamentsByCompanies} from "/src/scripts/requests.js";
 import { openModal } from "../../scripts/modal.js";
 import { visualizerInfoDepartament, visualizerEditDepartament, visualizerDeleteDepartament} from "../../scripts/visualizeInfo.js";
-import { requestAllUsers, requestEditUserByAdmin } from "../../scripts/requests.js";
+import { requestAllUsers, requestEditUserByAdmin, requestDeleteUserByAdmin } from "../../scripts/requests.js";
 import {inputDisabledRegister} from "/src/scripts/disabled.js"
 
 let tokenAdm = JSON.parse(localStorage.getItem("@KenzieEmpresas:user"))
@@ -130,7 +130,7 @@ async function renderDepartamentsAllCompanies(){
         iconTrash.alt       = "abrir departamento"
         
         iconTrash.addEventListener("click", async e => {
-            visualizerDeleteDepartament(tokenAdm, uuid)
+            await visualizerDeleteDepartament(tokenAdm, uuid)
         })
 
         div.append(iconVisualizer, iconEdit, iconTrash)
@@ -177,7 +177,7 @@ async function renderDepartamentsByCompanies(){
             iconVisualizer.alt       = "abrir departamento"
             
             iconVisualizer.addEventListener("click", async e => {
-                console.log("iconVisualizer")
+             
                 await visualizerInfoDepartament({name, description, companies, uuid})
             })
     
@@ -187,7 +187,8 @@ async function renderDepartamentsByCompanies(){
             iconEdit.alt       = "editar departamento"
     
             iconEdit.addEventListener("click", async e => {
-                console.log("iconEdit")
+                
+                await visualizerEditDepartament(tokenAdm, description, uuid)
             })
     
             const iconTrash = document.createElement("img")
@@ -196,7 +197,7 @@ async function renderDepartamentsByCompanies(){
             iconTrash.alt       = "abrir departamento"
             
             iconTrash.addEventListener("click", async e => {
-                console.log("iconTrash")
+                await visualizerDeleteDepartament(tokenAdm, uuid)
             })
     
             div.append(iconVisualizer, iconEdit, iconTrash)
@@ -224,8 +225,10 @@ async function renderAllUsers(){
             <button class="editUser">
             <img id="${uuid}" src="/src/assets/icons/black_pencil.svg" alt="edit ${username}">
             </button>
-            
+            <button class="deleteUser">
             <img id="${uuid}" src="/src/assets/icons/trash.svg" alt="trash ${username}">
+            </button>
+            
             </div>
             </li>
         `)
@@ -292,13 +295,49 @@ async function renderAllUsers(){
            openModal(section) 
      })
     })
+
+    const btndeleteUser = document.querySelectorAll(".deleteUser")
+
+    btndeleteUser.forEach(btn => {
+        
+        btn.addEventListener("click", async e =>{
+
+            e.preventDefault()
+            
+            const idUser = btn.children[0].id
+
+            const section = document.createElement("section") 
+            section.classList = "flex flex-col gap"
+
+            section.insertAdjacentHTML("beforeend", `
+            <h3>Realmente deseja deletar o funcionário?</h3>
+            <button type="submit">Deletar</button>
+            `)
+
+            section.addEventListener("click", async e => {
+                
+
+            let target = e.target
+
+            if(target.tagName == "BUTTON"){
+                await requestDeleteUserByAdmin(tokenAdm, idUser)
+                ulRegisteredUsers.innerHTML = ""
+                renderAllUsers()
+
+                target.closest(".modal-background").remove();
+ 
+             }
+            })
+
+            openModal(section)
+        })
+    })
+
+
   
 }
 renderAllUsers()
 
-function teste12(){
-    console.log("opa")
-}
 
 function logOut(){
     const btnLogOut = document.querySelector("#logout")
