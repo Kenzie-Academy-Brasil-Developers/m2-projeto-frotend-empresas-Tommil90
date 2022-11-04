@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="/src/assets/icons/ball.svg" type="image/x-icon">
+    
+    <link rel="stylesheet" href="/src/styles/globalStyles.css">
+    <link rel="stylesheet" href="/src/styles/displays.css">
+    <link rel="stylesheet" href="/src/styles/sizes.css">
+    <link rel="stylesheet" href="/src/styles/spaces.css">
+    <link rel="stylesheet" href="/src/styles/texts.css">
+    <link rel="stylesheet" href="/src/styles/buttons.css">
+
+
+    <link rel="stylesheet" href="/src/styles/index.css">
+
+    <title>Home</title>
+</head>
+
+<body>
+    <header>
+        <nav class="flex justify-between m-auto w-container p-2">
+           <div class="flex items-center gap">
+            <img clss= logo src="/src/assets/icons/ball.svg" alt="logo">
+            <h3 class="title-3">Kenzie Empresas</h3>
+           </div>
+           <img src="/src/assets/icons/Vector.svg" alt="menu" class="show-buttons">
+           <div class="buttons-nav flex gap">
+            <button class="button-default-2">Login</button>
+            <button class="button-default-2">Cadastro</button>
+           </div>     
+        </nav>
+    </header>
+    <main class="flex justify-between p h-section m-auto w-container">
+        <img src="/src/assets/img/Rectangle_init.svg" alt="imagem de fundo" class="w-section none">
+        <section class="w-section ">
+            <form class="w-full">
+                <!-- <label for="setor">Selecionar Setor</label> -->
+                <select id="setor" name="setor" required="true">
+                    <option value="">Selecionar Setor</option>
+                </select>
+            </form>
+            <ul class="flex flex-col gap h-full"></ul>
+        </section>
+    </main>
+    <script type="module" src="/src/scripts/index.js"></script>
+</body>
+</html>

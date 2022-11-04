@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="/src/assets/icons/ball.svg" type="image/x-icon">
+    
+    <link rel="stylesheet" href="/src/styles/globalStyles.css">
+    <link rel="stylesheet" href="/src/styles/displays.css">
+    <link rel="stylesheet" href="/src/styles/sizes.css">
+    <link rel="stylesheet" href="/src/styles/spaces.css">
+    <link rel="stylesheet" href="/src/styles/texts.css">
+    <link rel="stylesheet" href="/src/styles/buttons.css">
+    <link rel="stylesheet" href="/src/styles/inputs.css">
+    <link rel="stylesheet" href="/src/styles/modal.css">
+
+    <link rel="stylesheet" href="/src/pages/admin/admin.css">
+
+    <title>AdminPage</title>
+</head>
+<body>
+    <header>
+        <nav class="flex justify-between m-auto w-container p-2">
+            <div class="flex items-center gap">
+             <img clss= logo src="/src/assets/icons/ball.svg" alt="logo">
+             <h3 class="title-3">Kenzie Empresas</h3>
+            </div>
+            <button class="button-default-2">Logout</button> 
+         </nav>
+    </header>
+    <main class="">
+        <section>
+            <div class="header-main">
+                <h2 class="title-2">Departamentos</h2>
+                <select name="setor" required="true">
+                    <option value="">Selecionar Empresa</option>
+                </select>
+                <span id="create-company" class="flex">
+                    <p>+</p>
+                    <p>Criar</p>
+                </span>
+            </div>
+            <ul id="ul-departaments" class="container-ul"></ul>
+        </section>
+        <section>
+            <h2 class="title-2 w-full text-center">Usuários cadastrados</h2>
+            <ul id="ul-registered-users" class="container-ul"></ul>
+        </section>
+    </main>
+    <script type="module" src="/src/pages/admin/admin.js"></script>
+</body>
+</html>
+

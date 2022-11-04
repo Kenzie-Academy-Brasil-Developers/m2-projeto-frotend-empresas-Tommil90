@@ -1,0 +1,30 @@
+.toast-container {
+    position: fixed;
+    display: flex;
+    justify-items: flex-start;
+    align-items: center;
+    gap: 10px;
+    width: 300px;
+    padding: 10px;
+    border-radius: 8px;
+    /* box-shadow: 0px 4px 4px var(--box-shadow-color); */
+    animation: toastIt 3000ms ease-in forwards;
+}
+
+@keyframes toastIt {
+    0%   {right: 30px; top:-100px}
+    25%  {right: 30px; top:10px}
+    50%  {right: 30px; top:10px}
+    100% {right: 30px; top:-100px}
+}
+
+/* .successToast {
+    border: 2px solid var(--sucess);
+    background-color: var(--sucess-bg);
+}
+
+.errorToast {
+    border: 2px solid var(--error-2);
+    background-color: var(--error-bg);
+} */
+

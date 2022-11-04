@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="">
+
+    <link rel="stylesheet" href="/src/styles/globalStyles.css">
+    <link rel="stylesheet" href="/src/styles/displays.css">
+    <link rel="stylesheet" href="/src/styles/sizes.css">
+    <link rel="stylesheet" href="/src/styles/spaces.css">
+    <link rel="stylesheet" href="/src/styles/texts.css">
+    <link rel="stylesheet" href="/src/styles/buttons.css">
+    <link rel="stylesheet" href="/src/styles/inputs.css">
+    <link rel="stylesheet" href="/src/styles/modal.css">
+    
+
+    <link rel="stylesheet" href="./register.css">
+    <title>Cadastre-se</title>
+</head>
+<body>
+    <header>
+        <nav class="flex justify-between m-auto w-container p-2">
+            <div class="flex items-center gap">
+             <img clss= logo src="/src/assets/icons/ball.svg" alt="logo">
+             <h3 class="title-3">Kenzie Empresas</h3>
+            </div>
+            <img src="/src/assets/icons/Vector.svg" alt="menu" class="show-buttons">
+            <div class="buttons-nav flex gap">
+             <button class="button-default-2">Home</button>
+             <button class="button-default-2">Login</button>
+            </div>     
+         </nav>
+    </header>
+    <main>
+        <section class="register-background">
+            <div class="register-container flex flex-col gap">
+                <h1 class="title-1">Cadastre-se</h1>
+                <form class="flex flex-col gap">
+                    <input type="text" name="username"  placeholder="Seu nome" required="true" class="input-default">
+                    <input type="email" name="email"  placeholder="Seu e-mail" required="true" class="input-default">
+                    <input type="password" name="password"  placeholder="Sua senha" required="true" class="input-default">
+                    <select  name="professional_level" required="true" required="true" class="input-default">
+                        <option value="">Selecionar nivel</option>
+                        <option value="sênior">Sênior</option>
+                        <option value="pleno">Pleno</option>
+                        <option value="júnior">Junior</option>
+                        <option value="estágio">Junior</option>
+                    </select>
+                    <button type="submit" class="button-default" disabled="true">Cadastre-se</button>    
+                </form>
+                <button class="button-default">Retornar</button>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="./register.js"></script>
+</body>
+</html>

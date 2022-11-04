@@ -1,0 +1,46 @@
+.w-screen {
+  width: 100vw;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-20 {
+  width: 20%;
+}
+
+.h-20{
+  width: 122px;
+}
+.h-half {
+  height: 50%;
+}
+
+.w-section {
+  width: 550px;
+}
+
+.h-section {
+  height: 743px;
+}
+
+.w-container {
+  width: 1200px;
+}
+
+.text-center{
+  text-align: center;
+}

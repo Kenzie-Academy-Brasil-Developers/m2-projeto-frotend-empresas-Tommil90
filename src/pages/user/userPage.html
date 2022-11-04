@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="/src/assets/icons/ball.svg" type="image/x-icon">
+    
+    <link rel="stylesheet" href="/src/styles/globalStyles.css">
+    <link rel="stylesheet" href="/src/styles/displays.css">
+    <link rel="stylesheet" href="/src/styles/sizes.css">
+    <link rel="stylesheet" href="/src/styles/spaces.css">
+    <link rel="stylesheet" href="/src/styles/texts.css">
+    <link rel="stylesheet" href="/src/styles/buttons.css">
+    <link rel="stylesheet" href="/src/styles/inputs.css">
+    <link rel="stylesheet" href="/src/styles/modal.css">
+
+    <link rel="stylesheet" href="./userPage.css">
+
+    <title>userPage</title>
+</head>
+<body>
+    <header>
+        <nav class="flex justify-between m-auto w-container p-2">
+            <div class="flex items-center gap">
+             <img clss= logo src="/src/assets/icons/ball.svg" alt="logo">
+             <h3 class="title-3">Kenzie Empresas</h3>
+            </div>
+            <button class="button-default-2">Logout</button> 
+         </nav>
+    </header>
+    <main class="w-container">
+       <section id="user-info" class="w-full h-20"></section>
+       <div class="company-name title-1" >
+        <h3 id="titles-company"></h3>
+       </div>
+       <section id="co-workers">
+        <h1>Você ainda não foi contratado</h1>
+       </section>   
+    </main>
+    <script type="module" src="./userPage.js"></script>
+</body>
+</html>
+

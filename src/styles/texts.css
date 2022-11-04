@@ -1,0 +1,76 @@
+.title-1 {
+  font-size: var(--font-title-1);
+  font-weight: var(--font-weight-1);
+  line-height: var(--line-height-1);
+}
+.title-2 {
+  font-size: var(--font-title-2);
+  font-weight: var(--font-weight-1);
+  line-height: var(--line-height-1);
+}
+
+.title-3 {
+  font-size: var(--font-title-3);
+  font-weight: var(--font-weight-1);
+  line-height: var(--line-height-1);
+}
+
+.title-4 {
+  font-size: var(--font-title-4);
+  font-weight: var(--font-weight-1);
+  line-height: var(--line-height-1);
+}
+
+.title-5 {
+  font-size: var(--font-title-5);
+  font-weight: var(--font-weight-1);
+  line-height: var(--line-height-1);
+}
+
+.text-1 {
+  font-size: var(--font-text-1);
+  font-weight: var(--font-weight-3);
+  line-height: var(--line-height-1);
+}
+
+
+.text-grey-6 {
+  color: var(--gray600);
+}
+
+.text-grey-4 {
+  color: var(--gray400);
+}
+
+.text-grey-3 {
+  color: var(--gray300);
+}
+
+.te xt-grey-2{
+  color: var(--gray200);
+}
+
+.text-grey-1 {
+  color: var(--gray100);
+}
+
+/* 
+.text-sm {
+  font-size: 0.5rem;
+}
+
+.text-md {
+  font-size: 1rem;
+}
+
+.text-lg {
+  font-size: 1.5rem;
+}
+
+.text-xl {
+  font-size: 2rem;
+}
+
+.text-2xl {
+  font-size: 3rem;
+} */

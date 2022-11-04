@@ -1,0 +1,114 @@
+.button-default{
+  width: 100%;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--brand100);
+  border: 2px solid var(--brand100);
+  color: var(--gray900);
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button-default:hover{
+    background: var(--brand200);
+    border: 2px solid var(--brand200);
+    
+}
+
+.button-default-2{
+  width: 142px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--gray900);
+  border: 2px solid var(--brand100);
+  color: var(--brand100);
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button-default-2:hover{
+  background-color: var(--brand100);
+  border: 1px solid var(--brand100);
+  color: var(--gray900);
+}
+
+/* .button-default-3{
+    display: flex;
+    align-items: center;
+    height: max-content;
+    padding: 4px 6px;
+    background-color: var(--gray900);
+    border: 1px solid var(--gray500);
+    color: var(--gray100);
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 4px;
+    cursor: pointer; 
+}
+
+.button-default-3:hover{
+  background-color: var(--gray500);
+  border: 1px solid var(--gray500)
+}
+
+.button-default-4{
+  padding: 12px 30px;
+  width: max-content;
+  height: 44px;
+  background-color: var(--gray900);
+  border: 2px solid var(--gray500);
+  color: var(--gray100);
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 4px;
+  cursor: pointer; 
+}
+
+.button-default-4:hover{
+background-color: var(--gray500);
+border: 2px solid var(--gray500)
+}
+
+.button-default-5{
+  padding: 12px 30px;
+  width: max-content;
+  height: 44px;
+  background: var(--brand100);
+  border: 2px solid var(--brand100);
+  color: var(--gray700);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-default-5:hover{
+  background: var(--brand200);
+  border: 2px solid var(--brand200);
+  
+}
+
+.button-default-6{
+  padding: 12px 30px;
+  width: max-content;
+  height: 44px;
+  background: var(--alert100);
+  border: 2px solid var(--alert100);
+  color: var(--gray900);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-default-6:hover{
+  background: var(--alert200);
+  border: 2px solid var(--alert200);
+  
+} */

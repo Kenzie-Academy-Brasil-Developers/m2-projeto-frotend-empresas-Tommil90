@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="">
+
+    <link rel="stylesheet" href="/src/styles/globalStyles.css">
+    <link rel="stylesheet" href="/src/styles/displays.css">
+    <link rel="stylesheet" href="/src/styles/sizes.css">
+    <link rel="stylesheet" href="/src/styles/spaces.css">
+    <link rel="stylesheet" href="/src/styles/texts.css">
+    <link rel="stylesheet" href="/src/styles/buttons.css">
+    <link rel="stylesheet" href="/src/styles/inputs.css">
+    <link rel="stylesheet" href="/src/styles/modal.css">
+    <link rel="stylesheet" href="/src/styles/spinner.css">
+
+    <link rel="stylesheet" href="./login.css">
+    <title>Login</title>
+</head>
+<body>
+    <header>
+        <nav class="flex justify-between m-auto w-container p-2">
+            <div class="flex items-center gap">
+             <img clss= logo src="/src/assets/icons/ball.svg" alt="logo">
+             <h3 class="title-3">Kenzie Empresas</h3>
+            </div>
+            <img src="/src/assets/icons/Vector.svg" alt="menu" class="show-buttons">
+            <div class="buttons-nav flex gap">
+             <button class="button-default-2">Home</button>
+             <button class="button-default-2">Cadastro</button>
+            </div>     
+         </nav>
+    </header>
+    <main>
+        <section class="login-background">
+            <div class="login-container flex flex-col gap">
+                <h1 class="title-1">Login</h1>
+                <small class="text-1">Preencha os campos para realizar login</small>
+                <form class="flex flex-col gap">
+                    <input type="email" name="email"  placeholder="Seu e-mail" required="true" class="input-default">
+                    <input type="password" name="password"  placeholder="Sua senha" required="true" class="input-default">
+                    <button type="submit" class="button-default spinner">Login</button>    
+                </form>
+                <p class="ou">ou</p>
+                <button class="button-default">Cadastre-se</button>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="./login.js"></script>
+</body>
+</html>
+
