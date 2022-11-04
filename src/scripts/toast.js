@@ -11,6 +11,11 @@ const toast = (message) => {
     p.classList             = "text-3"
     p.innerText             = message
 
+    if (message == "Usuario ja existe") {
+        container.classList.add("errorToast")
+    } else {
+        container.classList.add("successToast")
+    }
     container.append(p)
     body.appendChild(container)
 }

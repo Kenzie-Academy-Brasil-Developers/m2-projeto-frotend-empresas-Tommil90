@@ -2,6 +2,7 @@ import {requestCompanies, requestDepartamentsAllCompanies, requestDepartamentsBy
 import { openModal } from "../../scripts/modal.js";
 import { visualizerInfoDepartament, visualizerEditDepartament, visualizerDeleteDepartament} from "../../scripts/visualizeInfo.js";
 import { requestAllUsers } from "../../scripts/requests.js";
+import {inputDisabledRegister} from "/src/scripts/disabled.js"
 
 let tokenAdm = JSON.parse(localStorage.getItem("@KenzieEmpresas:user"))
 
@@ -53,13 +54,20 @@ async function createCompany(){
 
                 list.forEach(({uuid, name}) => {
                     tag.insertAdjacentHTML("beforeend", `
-                    <option id="${uuid}" value="${name}">${name}</option>
+                    <option id="${uuid}" value="${uuid}">${name}</option>
                     `)
                 });
             }
-            if(tag.tagName == "FORM"){
+            if(tag.tagName == "BUTTON"){
+               
+                console.log(tag)
+                // const form = tag
+                // const elements = [...form.elements]
 
-                const element = [...]
+       
+                //PENDIENTE
+                
+
             }
         })
 
@@ -222,7 +230,15 @@ async function renderAllUsers(){
 }
 renderAllUsers()
 
+function logOut(){
+    const btnLogOut = document.querySelector("#logout")
+    
+    btnLogOut.addEventListener("click", e =>{
+        e.preventDefault()
 
-function ola(){
-    console.log("ola")
+        localStorage.removeItem("@KenzieEmpresas:user")
+        window.location.replace("/index.html")
+    })
+
 }
+logOut()

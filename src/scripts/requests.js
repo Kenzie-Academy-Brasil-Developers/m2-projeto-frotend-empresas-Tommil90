@@ -79,23 +79,16 @@ async function requestCreateUser (body){
         })
 
         const response = await request.json()
-        console.log(response)
+      
 
         if (request.ok){
-
-            const response = await request.json()
-            console.log(response)
-           if(response.status){
-                
-                console.log(response)
-                toast(response.status)
-            }else{
-                toast("Criação de usuário bem sucedida")
-                setTimeout(() => {
-                    window.location.replace("/src/pages/login/login.html")
-                    }, 4000)
-            }
-            return request
+   
+            toast("Criação de usuário bem sucedida")
+            setTimeout(() => {
+                window.location.replace("/src/pages/login/login.html")}, 4000)
+        }else{
+            console.log(response.error[0])
+            toast("Usuario ja existe")
         }
     }catch(err){
         console.log(err)
