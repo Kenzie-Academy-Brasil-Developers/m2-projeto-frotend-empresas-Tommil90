@@ -347,10 +347,10 @@ async function requestUpdateUser (token , body){
             },
             body: JSON.stringify(body)
         })
-
+        
         if(request.ok){
             const response = await request.json()
-
+            console.log(response)
             return response
         }else{
             console.log(request)
@@ -399,6 +399,29 @@ async function requestDeleteCompany(token, endpoint){
     }
 }
 
+async function requestEditUserByAdmin(token, endpoint, body){
 
-export {requestSectors, requestCompaniesBySector, requestCompanies, requestCreateUser, requestLoginUser, requestDepartamentsAllCompanies, requestDepartamentsByCompanies, requestUserOfOutWork, requestAllUsers, requestHireUser, requestDismissUser, requestInfoUser, requestDepertamentUser, requestSameDepartamentUsers, requestUpdateUser, requestUpdateDescriptionDepartament, requestDeleteCompany}
+    try{
+        const request = await fetch(baseUrl + "admin/update_user/" + endpoint, {
+            method: 'PATCH',
+            headers: {
+              "Content-Type": "application/json",  
+              "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(body)
+        })
+
+        if(request.ok){
+            const response = await request.json()
+
+            return response
+        }else{
+            console.log(request)
+        }
+    }catch(err){
+            console.log(err)
+    }
+}
+
+export {requestSectors, requestCompaniesBySector, requestCompanies, requestCreateUser, requestLoginUser, requestDepartamentsAllCompanies, requestDepartamentsByCompanies, requestUserOfOutWork, requestAllUsers, requestHireUser, requestDismissUser, requestInfoUser, requestDepertamentUser, requestSameDepartamentUsers, requestUpdateUser, requestUpdateDescriptionDepartament, requestDeleteCompany, requestEditUserByAdmin}
 

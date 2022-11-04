@@ -1,7 +1,7 @@
 import {requestCompanies, requestDepartamentsAllCompanies, requestDepartamentsByCompanies} from "/src/scripts/requests.js";
 import { openModal } from "../../scripts/modal.js";
 import { visualizerInfoDepartament, visualizerEditDepartament, visualizerDeleteDepartament} from "../../scripts/visualizeInfo.js";
-import { requestAllUsers } from "../../scripts/requests.js";
+import { requestAllUsers, requestEditUserByAdmin } from "../../scripts/requests.js";
 import {inputDisabledRegister} from "/src/scripts/disabled.js"
 
 let tokenAdm = JSON.parse(localStorage.getItem("@KenzieEmpresas:user"))
@@ -221,14 +221,84 @@ async function renderAllUsers(){
             <p>${professional_level}</p>
             <p>Company Name</p>
             <div>
+            <button class="editUser">
             <img id="${uuid}" src="/src/assets/icons/black_pencil.svg" alt="edit ${username}">
+            </button>
+            
             <img id="${uuid}" src="/src/assets/icons/trash.svg" alt="trash ${username}">
             </div>
             </li>
         `)
+
     })
+    const btneditUser = document.querySelectorAll(".editUser")
+     
+    btneditUser.forEach(btn => {
+        btn.addEventListener("click", e=> {
+            e.preventDefault()
+            
+            const idUser = btn.children[0].id
+
+            const section = document.createElement("section")
+            section.classList = "flex flex-col gap"
+
+            const h1 = document.createElement("h1")
+            h1.classList= "title-1"
+            h1.innerText = "Editar Usuários"
+
+            const form = document.createElement("form")
+            form.classList = "flex flex-col gap"
+
+            section.append(h1, form)
+
+            form.insertAdjacentHTML("beforeend", `
+            
+            <select  name="kind_of_work" required="true" required="true" class="input-default">
+            <option value="">Selecionar modalidade de trabalho</option>
+            <option value="home office">Home office</option>
+            <option value="presencial">Presencial</option>
+            </select>
+            <select  name="professional_level" required="true" required="true" class="input-default">
+            <option value="">Selecionar nivel</option>
+            <option value="sênior">Sênior</option>
+            <option value="pleno">Pleno</option>
+            <option value="júnior">Junior</option>
+            <option value="estágio">Estagio</option>
+            </select>
+            <button type="submit" class="button-default">Cadastre-se</button>    
+            `)
+
+            form.addEventListener("submit", async e => {
+                // e.preventDefault()
+ 
+
+                const elements  = [...form.elements]
+                
+                const body = {}
+
+                elements.forEach(element => {
+                    
+                    if ((element.tagName == "INPUT" || element.tagName == "SELECT") && element.value !== ""){
+        
+                        body[element.name] = element.value
+                    }
+                })
+                await requestEditUserByAdmin(tokenAdm, idUser, body)
+                ulRegisteredUsers.innerHTML = ""
+                renderAllUsers()
+            })
+         
+        
+           openModal(section) 
+     })
+    })
+  
 }
 renderAllUsers()
+
+function teste12(){
+    console.log("opa")
+}
 
 function logOut(){
     const btnLogOut = document.querySelector("#logout")

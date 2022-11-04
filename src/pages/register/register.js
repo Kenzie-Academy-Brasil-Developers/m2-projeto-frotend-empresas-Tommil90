@@ -20,10 +20,27 @@ async function registerUser (){
                 body[element.name] = element.value
             }
         })
-        console.log(body)
+        // console.log(body)
         await requestCreateUser(body)
     })
 }
 
+function goHome(){
+
+    const btngoHome = document.querySelectorAll(".goHome")
+
+    btngoHome.forEach(btn => {
+        
+        btn.addEventListener("click", e=> {
+        
+            e.preventDefault()
+            window.location.replace("/index.html")
+        })
+    })
+}
+
+
+
 showButtons()
 registerUser ()
+goHome()

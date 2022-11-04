@@ -26,5 +26,35 @@ async function loginUser (){
     })
 }
 
+function goHome(){
+
+    const btngoHome = document.querySelectorAll(".goHome")
+
+    btngoHome.forEach(btn => {
+        
+        btn.addEventListener("click", e=> {
+        
+            e.preventDefault()
+            window.location.replace("/index.html")
+        })
+    })
+}
+
+function goRegister(){
+
+    const btngoRegister = document.querySelectorAll(".goRegister")
+
+    btngoRegister.forEach(btn => {
+        
+        btn.addEventListener("click", e=> {
+        
+            e.preventDefault()
+            window.location.replace("/src/pages/register/register.html")
+        })
+    })
+}
+
 showButtons()
 loginUser ()
+goHome()
+goRegister()

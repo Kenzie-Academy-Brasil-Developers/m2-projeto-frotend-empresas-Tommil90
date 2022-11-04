@@ -5,6 +5,7 @@ import {openModal} from "../../scripts/modal.js"
 let tokenUser = JSON.parse(localStorage.getItem("@KenzieEmpresas:user"))
 
 
+
 async function renderUserInfo(){
 
     const {uuid, username, email, professional_level, kind_of_work, department_uuid} = await requestInfoUser(tokenUser)
@@ -68,18 +69,18 @@ async function renderUserInfo(){
             })
                 console.log(body)
                 await requestUpdateUser (tokenUser , body)
-            
+                section.innerHTML = ""
+                renderUserInfo()
     
-            // let button = e.target;
-            // //imag == button = false
-            // //button == button = false
-            // if (button.tagName == "FORM") {
-            //  //ACESSANDO ELEMENTO PAI
-            // let section = button.closest(".modal-background");
+            let tag = e.target;
     
-            //  //REMOVENDO ELEMENTO
-            //   section.remove()
-            // }
+            if (tag.tagName == "FORM") {
+             //ACESSANDO ELEMENTO PAI
+            let section = tag.closest(".modal-background");
+    
+             //REMOVENDO ELEMENTO
+              section.remove()
+            }
         })
 
         const inputName = document.createElement("input")
@@ -156,3 +157,15 @@ async function renderSameDepartamentUsers (){
 }
 renderSameDepartamentUsers ()
 
+function logOut(){
+    const btnLogOut = document.querySelector("#logout")
+    
+    btnLogOut.addEventListener("click", e =>{
+        e.preventDefault()
+
+        localStorage.removeItem("@KenzieEmpresas:user")
+        window.location.replace("/index.html")
+    })
+
+}
+logOut()
