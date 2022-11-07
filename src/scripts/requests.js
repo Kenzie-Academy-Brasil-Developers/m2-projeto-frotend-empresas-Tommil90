@@ -438,5 +438,34 @@ async function requestDeleteUserByAdmin(token, endpoint){
     }
 }
 
-export {requestSectors, requestCompaniesBySector, requestCompanies, requestCreateUser, requestLoginUser, requestDepartamentsAllCompanies, requestDepartamentsByCompanies, requestUserOfOutWork, requestAllUsers, requestHireUser, requestDismissUser, requestInfoUser, requestDepertamentUser, requestSameDepartamentUsers, requestUpdateUser, requestUpdateDescriptionDepartament, requestDeleteCompany, requestEditUserByAdmin, requestDeleteUserByAdmin}
+async function requestCreateDepartament(token, body){
+
+    try{
+        const request = await fetch (baseUrl + "departments", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(body)
+        })
+
+        const response = await request.json()
+      
+
+        if (request.ok){
+            
+            toast("Criação de departamento bem sucedida")
+
+            
+        }else{
+            console.log(response)
+            toast(response)
+        }
+    }catch(err){
+        console.log(err)
+    }
+}
+
+export {requestSectors, requestCompaniesBySector, requestCompanies, requestCreateUser, requestLoginUser, requestDepartamentsAllCompanies, requestDepartamentsByCompanies, requestUserOfOutWork, requestAllUsers, requestHireUser, requestDismissUser, requestInfoUser, requestDepertamentUser, requestSameDepartamentUsers, requestUpdateUser, requestUpdateDescriptionDepartament, requestDeleteCompany, requestEditUserByAdmin, requestDeleteUserByAdmin, requestCreateDepartament}
 

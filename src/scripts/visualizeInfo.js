@@ -140,7 +140,7 @@ async function visualizerEditDepartament(token, description, endpoint){
         <h1>Editar Departamento</h1>
         <form class"flex flex-col">
             <textarea name="description" id="" cols="30" rows="10">${description}</textarea>
-            <button type="submit">Salvar alterações</button>
+            <button id="saveNewInfoDepartament" type="submit">Salvar alterações</button>
         </form>
         `)
 
@@ -159,9 +159,8 @@ async function visualizerEditDepartament(token, description, endpoint){
 
                     await requestUpdateDescriptionDepartament(tokenAdm, endpoint, body)
 
-                    let section = target.closest(".modal-background");
-                    //REMOVENDO ELEMENTO
-                     section.remove()
+                    target.closest(".modal-background").remove();
+                    location.reload();
 
                 }
         })
@@ -186,6 +185,8 @@ async function visualizerDeleteDepartament(token, endpoint){
 
         if(target.tagName == "BUTTON"){
             await requestDeleteCompany(token, endpoint)
+            target.closest(".modal-background").remove();
+            location.reload();
         }
     })
 

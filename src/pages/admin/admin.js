@@ -1,7 +1,7 @@
 import {requestCompanies, requestDepartamentsAllCompanies, requestDepartamentsByCompanies} from "/src/scripts/requests.js";
 import { openModal } from "../../scripts/modal.js";
 import { visualizerInfoDepartament, visualizerEditDepartament, visualizerDeleteDepartament} from "../../scripts/visualizeInfo.js";
-import { requestAllUsers, requestEditUserByAdmin, requestDeleteUserByAdmin } from "../../scripts/requests.js";
+import { requestAllUsers, requestEditUserByAdmin, requestDeleteUserByAdmin, requestCreateDepartament } from "../../scripts/requests.js";
 import {inputDisabledRegister} from "/src/scripts/disabled.js"
 
 let tokenAdm = JSON.parse(localStorage.getItem("@KenzieEmpresas:user"))
@@ -16,8 +16,10 @@ const ulRegisteredUsers = document.getElementById("ul-registered-users")
 async function companyList(){
 
     const list = await requestCompanies()
+    console.log()
 
     list.forEach(({uuid, name}) => {
+        console.log()
         select.insertAdjacentHTML("beforeend", `
         <option id="${uuid}" value="${name}">${name}</option>
         `)
@@ -25,7 +27,7 @@ async function companyList(){
 }
 companyList()
 
-async function createCompany(){
+async function createDepartament(){
 
     const list = await requestCompanies()
 
@@ -37,9 +39,9 @@ async function createCompany(){
         section.insertAdjacentHTML("beforeend", `
         <h1>Criar Departamento</h1>
         <form>
-            <input type="text">
-            <input type="text">
-            <select name="" id="">
+            <input type="text" name="name" placeholder="Nome do Departamento">
+            <input type="text" name="description" placeholder="Descricao">
+            <select name="company_uuid" id="">
                 <option value="">Digite nome da Empresa</option>
             </select>
             <button type="submit">Criar o Departamento</button>
@@ -60,14 +62,23 @@ async function createCompany(){
             }
             if(tag.tagName == "BUTTON"){
                
-                console.log(tag)
-                // const form = tag
-                // const elements = [...form.elements]
+                const elements = [...e.currentTarget.children[1]]
+                const body = {
+                    
+                }
 
-       
-                //PENDIENTE
-                
+                elements.forEach(element => {
 
+                    if ((element.tagName == "INPUT" || element.tagName == "SELECT") && element.value !== ""){
+
+                        body[element.name] = element.value
+                    }
+                })
+
+                await requestCreateDepartament(tokenAdm, body)
+                ulDepartaments.innerHTML = ""
+                await renderDepartamentsAllCompanies()
+                tag.closest(".modal-background").remove();
             }
         })
 
@@ -76,7 +87,8 @@ async function createCompany(){
         openModal(section)
     })
 }
-createCompany()
+createDepartament()
+
 
 async function renderDepartamentsAllCompanies(){
 
@@ -120,6 +132,7 @@ async function renderDepartamentsAllCompanies(){
         iconEdit.addEventListener("click", async e => {
   
              await visualizerEditDepartament(tokenAdm, description, uuid)
+        
                 
 
         })
@@ -189,6 +202,7 @@ async function renderDepartamentsByCompanies(){
             iconEdit.addEventListener("click", async e => {
                 
                 await visualizerEditDepartament(tokenAdm, description, uuid)
+                
             })
     
             const iconTrash = document.createElement("img")
@@ -268,7 +282,7 @@ async function renderAllUsers(){
             <option value="júnior">Junior</option>
             <option value="estágio">Estagio</option>
             </select>
-            <button type="submit" class="button-default">Cadastre-se</button>    
+            <button type="submit" class="button-default">Editar</button>    
             `)
 
             form.addEventListener("submit", async e => {
@@ -337,6 +351,20 @@ async function renderAllUsers(){
   
 }
 renderAllUsers()
+
+
+async function saveNewInfoDepartament(){
+
+    const button = document.getElementById("saveNewInfoDepartament")
+
+    button.addEventListener("click", async e => {
+        e.preventDefault()
+
+        ulDepartaments.innerHTML = ""
+        await renderDepartamentsAllCompanies()
+    })
+}
+
 
 
 function logOut(){
